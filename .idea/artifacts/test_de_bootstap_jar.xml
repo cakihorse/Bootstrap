@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="test de bootstap:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/test_de_bootstap_jar</output-path>
+    <root id="root">
+      <element id="archive" name="test de bootstap.jar">
+        <element id="module-output" name="test de bootstap" />
+      </element>
+    </root>
+  </artifact>
+</component>

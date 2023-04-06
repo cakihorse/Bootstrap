@@ -1,0 +1,27 @@
+try {
+            URL url = new URL(urlStr);
+            URLConnection conn = url.openConnection();
+
+            BufferedInputStream in = new BufferedInputStream(conn.getInputStream());
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(fileName));
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = in.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesRead);
+            }
+
+            out.close();
+            in.close();
+
+            System.out.println("Le téléchargement de " + fileName + " est terminé.");
+
+            Path downloadsPath = Paths.get(System.getProperty("user.home"), "Downloads");
+            Path filePath = downloadsPath.resolve(fileName);
+            //Files.copy(filePath, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Le fichier est enregistré à l'emplacement suivant : " + filePath);
+        } catch (IOException e) {
+            System.out.println("Une erreur s'est produite lors du téléchargement : " + e.getMessage());
+        }
+    }
+}
